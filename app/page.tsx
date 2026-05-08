@@ -356,7 +356,7 @@ export default function Home() {
             Christian Calviño
           </span>
         </div>
-        <div className="font-mono text-[12px]">
+        <div>
           Not affiliated with HappyCo · {new Date().getFullYear()}
         </div>
       </footer>
