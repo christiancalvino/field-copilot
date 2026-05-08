@@ -91,7 +91,7 @@ export default function Home() {
           </div>
 
           {/* Timeline below the demo — eye watches first, reads after */}
-          <div className="mt-16 lg:mt-20 grid grid-cols-3 gap-6 sm:gap-10 max-w-3xl mx-auto">
+          <div className="mt-16 lg:mt-20 grid grid-cols-3 gap-6 sm:gap-10">
             <TimelineStep n="1" label="Speak naturally" />
             <TimelineStep n="2" label="AI parses entities live" />
             <TimelineStep n="3" label="Pattern detected" />
