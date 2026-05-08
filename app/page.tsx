@@ -47,11 +47,11 @@ export default function Home() {
         <p className="mt-7 max-w-2xl text-[18px] sm:text-[20px] leading-[1.55] text-text-secondary">
           HappyCo already brings{" "}
           <span className="font-semibold text-text-primary">JoyAI</span>{" "}
-          into maintenance workflows through summaries, routing, voice
-          capture, and operational insights. Field Copilot explores the next
-          layer: a technician-facing intelligence surface that helps teams
-          document less, catch patterns earlier, and turn every repair into
-          structured portfolio memory.
+          into maintenance workflows through intake, summaries, routing,
+          voice capture, and operational insights. Field Copilot explores
+          the next layer: a technician-facing intelligence surface that
+          helps teams document less, catch patterns earlier, and turn every
+          repair into structured portfolio memory.
         </p>
 
         <p className="mt-6 max-w-2xl text-[16px] leading-[1.55] text-text-primary border-l-2 border-accent-ai pl-4">
@@ -61,7 +61,7 @@ export default function Home() {
 
         <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-3 text-[13px] font-mono text-text-tertiary">
           <span><span className="text-text-primary">5</span> screens</span>
-          <span><span className="text-text-primary">1</span> coded interaction</span>
+          <span><span className="text-text-primary">1</span> coded moment</span>
           <span><span className="text-text-primary">~12h</span> with AI</span>
           <span><span className="text-text-primary">Figma</span> + Next.js</span>
         </div>
@@ -93,8 +93,8 @@ export default function Home() {
               {/* Timeline — stacked vertically below the paragraph */}
               <div className="space-y-4 max-w-md">
                 <TimelineStep n="1" label="Speak naturally" />
-                <TimelineStep n="2" label="AI parses entities live" />
-                <TimelineStep n="3" label="Pattern detected" />
+                <TimelineStep n="2" label="Structure the work" />
+                <TimelineStep n="3" label="Surface the pattern" />
               </div>
             </div>
 
@@ -113,10 +113,10 @@ export default function Home() {
         </h2>
         <p className="text-[17px] leading-[1.55] text-text-secondary max-w-2xl mb-14">
           Each screen lives at a different moment of the technician&apos;s day.
-          The AI threads through all of them — never theatrical, always marked
-          by the same{" "}
+          The same AI signal follows the work from route planning to capture,
+          review, escalation, and day wrap — always marked by the{" "}
           <span className="text-accent-ai-soft font-semibold">✦ cyan</span>{" "}
-          accent so the user always knows when it&apos;s the system speaking.
+          accent so the user knows when the system is making a suggestion.
         </p>
 
         {/* Hero screen */}
@@ -198,50 +198,36 @@ export default function Home() {
             Why this, why now
           </div>
           <h2 className="text-[clamp(32px,4.4vw,52px)] font-bold leading-[1.06] tracking-[-0.03em] mb-10 max-w-3xl">
-            HappyCo&apos;s next AI primitive isn&apos;t a feature. It&apos;s a
-            persona.
+            HappyCo&apos;s next AI opportunity isn&apos;t another standalone
+            feature. It&apos;s a sharper field workflow.
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-10 text-[16px] leading-[1.65] text-text-secondary">
-            <div className="space-y-4">
-              <p>
-                <span className="font-semibold text-text-primary">
-                  JoyAI already supports key moments
-                </span>{" "}
-                across the maintenance workflow: intake, summaries, routing,
-                and voice-powered completion notes. The opportunity I
-                explored is not &ldquo;add AI,&rdquo; but make the
-                technician&apos;s in-unit workflow a richer source of
-                operational intelligence.
-              </p>
-              <p>
-                HappyCo&apos;s public narrative is strongest around connected
-                operations, visibility, automation, and portfolio
-                intelligence. Field Copilot focuses on the field moment
-                where much of that intelligence is created: the technician
-                observing, diagnosing, repairing, and documenting inside
-                the unit.
-              </p>
-            </div>
-            <div className="space-y-4">
-              <p>
-                <span className="font-semibold text-text-primary">
-                  Field Copilot
-                </span>{" "}
-                extends that intelligence into the technician&apos;s pocket.
-                Same logic, different context. It captures voice, parses
-                intent, and most importantly:{" "}
-                <span className="text-accent-ai-soft font-semibold">
-                  it remembers across the portfolio.
-                </span>
-              </p>
-              <p>
-                That&apos;s where the &ldquo;40% repeat work eliminated&rdquo;
-                that HappyCo&apos;s testimonials promise actually gets earned
-                — when the system catches that the leak in 3B is the third in
-                the same column, not three isolated tickets.
-              </p>
-            </div>
+          <div className="space-y-6 text-[17px] leading-[1.65] text-text-secondary max-w-3xl">
+            <p>
+              <span className="font-semibold text-text-primary">
+                JoyAI already supports key maintenance moments:
+              </span>{" "}
+              intake, summaries, routing, voice-powered notes, and
+              operational insights. I&apos;m not proposing &ldquo;add AI to
+              maintenance.&rdquo; I&apos;m exploring what happens when the
+              technician&apos;s in-unit workflow becomes a real-time
+              intelligence surface.
+            </p>
+            <p>
+              The field is where the most valuable context is created: what
+              the tech sees, what they try, what parts they use, what keeps
+              repeating, and what should be escalated. Field Copilot turns
+              that moment into{" "}
+              <span className="text-accent-ai-soft font-semibold">
+                structured memory the whole portfolio can learn from.
+              </span>
+            </p>
+            <p>
+              That&apos;s where repeat work gets reduced: not by treating the
+              leak in 3B as another isolated ticket, but by catching that it
+              is the third issue in the same vertical stack before the work
+              order is closed.
+            </p>
           </div>
         </div>
       </section>
@@ -260,13 +246,13 @@ export default function Home() {
             n="01"
             title="Research, ~30 min"
             tools="Claude · happy.co"
-            body="Mapped HappyCo's existing JoyAI surfaces, including summaries, routing, voice capture, and operational insights. The concept intentionally extends that system rather than inventing a disconnected AI feature."
+            body="Reviewed happy.co for product surfaces, personas, brand language, and proof points. Mapped JoyAI's existing role across maintenance workflows and looked for a plausible extension, not a replacement."
           />
           <Step
             n="02"
             title="Concept, ~45 min"
             tools="Claude"
-            body="Stress-tested three concepts (Field Copilot, Pattern Teardown, Owner's Pulse). Picked the one that ladders directly into HappyCo's strategic gap."
+            body="Stress-tested three concepts: Field Copilot, Pattern Teardown, and Owner's Pulse. Picked the one closest to HappyCo's existing product direction and most useful for showing field-level interaction design."
           />
           <Step
             n="03"
@@ -316,10 +302,10 @@ export default function Home() {
             A focused extension of HappyCo&apos;s field intelligence layer.
           </h2>
           <p className="text-[17px] leading-[1.65] text-text-on-navy/80 max-w-2xl mx-auto mb-10">
-            The artifact above documents persona choice, system extension
-            rationale (JoyAI → Field Copilot), and one functional moment
-            built in real code. Open to discussion of implementation
-            trade-offs, scope, or design rationale.
+            This artifact documents the product rationale, persona choice,
+            AI interaction model, and one coded moment. It&apos;s meant to
+            show how I think, how I use AI to move faster, and how quickly
+            I can turn a product hypothesis into something concrete.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
