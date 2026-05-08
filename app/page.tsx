@@ -319,13 +319,24 @@ export default function Home() {
             trade-offs, scope, or design rationale.
           </p>
           <a
-            href="https://chriscalvino.com"
+            href="https://www.figma.com/design/MG6QCVUnwNy4NLIahdk2p0"
             target="_blank"
             rel="noreferrer"
-            className="inline-block text-[18px] sm:text-[20px] font-medium text-accent-ai hover:text-text-inverse transition underline-offset-[6px] hover:underline"
+            className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-accent-ai text-bg-deep font-semibold hover:bg-text-inverse transition"
           >
-            chriscalvino.com ↗
+            View Figma file
+            <span>↗</span>
           </a>
+          <div className="mt-8">
+            <a
+              href="https://chriscalvino.com"
+              target="_blank"
+              rel="noreferrer"
+              className="text-[14px] text-text-on-navy/60 hover:text-accent-ai transition underline-offset-4 hover:underline"
+            >
+              chriscalvino.com ↗
+            </a>
+          </div>
         </div>
       </section>
 
@@ -336,17 +347,8 @@ export default function Home() {
             Christian Calviño
           </span>
         </div>
-        <div className="flex items-center gap-5">
-          <a
-            href="https://www.figma.com/design/MG6QCVUnwNy4NLIahdk2p0"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-text-primary transition"
-          >
-            View Figma file ↗
-          </a>
-          <span className="text-text-tertiary/50">·</span>
-          <span>Not affiliated with HappyCo · {new Date().getFullYear()}</span>
+        <div>
+          Not affiliated with HappyCo · {new Date().getFullYear()}
         </div>
       </footer>
     </main>
