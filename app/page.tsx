@@ -167,10 +167,10 @@ export default function Home() {
 
         {/* The other 4 — grouped in a soft lavender container */}
         <div className="rounded-3xl bg-bg-lavender/70 px-6 sm:px-10 lg:px-14 py-12 sm:py-16">
-          <div className="grid sm:grid-cols-2 gap-y-16 sm:gap-y-20 gap-x-10 lg:gap-x-14">
+          <div className="grid sm:grid-cols-2 gap-y-20 sm:gap-y-24 gap-x-10 lg:gap-x-14">
             {SCREENS.filter((s) => !s.hero).map((s) => (
-              <div key={s.src}>
-                <div className="relative flex items-center justify-center pb-6">
+              <div key={s.src} className="flex flex-col items-center text-center">
+                <div className="relative flex items-center justify-center pb-12">
                   <Image
                     src={s.src}
                     alt={s.label}
@@ -179,10 +179,10 @@ export default function Home() {
                     className="relative rounded-[44px] shadow-[0_18px_36px_-12px_rgba(40,36,90,0.18),0_6px_12px_-6px_rgba(40,36,90,0.10)] max-w-[320px] w-full h-auto"
                   />
                 </div>
-                <div className="text-[11px] font-semibold tracking-[0.18em] text-text-tertiary mb-2 uppercase">
+                <div className="text-[11px] font-semibold tracking-[0.18em] text-text-tertiary mb-3 uppercase">
                   {s.label}
                 </div>
-                <p className="text-[15px] leading-[1.55] text-text-secondary">
+                <p className="text-[15px] leading-[1.55] text-text-secondary max-w-sm">
                   {s.desc}
                 </p>
               </div>
