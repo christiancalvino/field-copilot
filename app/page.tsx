@@ -337,9 +337,14 @@ export default function Home() {
       <footer className="px-6 sm:px-10 py-10 max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-[13px] text-text-tertiary">
         <div>
           Field Copilot · A concept for HappyCo · By{" "}
-          <span className="text-text-primary font-medium">
+          <a
+            href="https://chriscalvino.com"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-text-primary transition underline-offset-4 hover:underline"
+          >
             Christian Calviño
-          </span>
+          </a>
         </div>
         <div>
           Not affiliated with HappyCo · {new Date().getFullYear()}
@@ -364,8 +369,7 @@ function Stat({ value, label }: { value: string; label: string }) {
 
 function TimelineStep({ n, label }: { n: string; label: string }) {
   return (
-    <div className="relative pt-4 border-t border-text-on-navy/15">
-      <div className="absolute -top-px left-0 w-8 h-px bg-accent-ai" />
+    <div className="relative pt-4 border-t border-text-on-navy/20">
       <div className="text-[12px] font-semibold tracking-[0.18em] text-accent-ai mb-1.5">
         {n}.
       </div>

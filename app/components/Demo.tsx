@@ -100,6 +100,9 @@ export function FieldCopilotDemo() {
 
   useEffect(() => () => clearAll(), []);
 
+  // Wave animates only while listening / parsing — stops once AI moves to
+  // "thinking" or after, since the user has stopped speaking by then.
+  const isListening = phase === "recording" || phase === "transcript";
   const showWaveform = phase !== "idle";
   const showSheet = phase === "sheet" || phase === "done";
 
@@ -166,14 +169,14 @@ export function FieldCopilotDemo() {
                     }}
                     animate={
                       reduceMotion
-                        ? { scaleY: showWaveform ? 0.7 : 0.3 }
-                        : showWaveform
+                        ? { scaleY: isListening ? 0.7 : 0.3 }
+                        : isListening
                         ? { scaleY: [0.4, 1, 0.6, 1.1, 0.5, 1] }
                         : { scaleY: 0.3 }
                     }
                     transition={
-                      reduceMotion
-                        ? { duration: 0.2 }
+                      reduceMotion || !isListening
+                        ? { duration: 0.4, ease: "easeOut" }
                         : {
                             duration: 1.2 + (i % 5) * 0.15,
                             repeat: Infinity,
