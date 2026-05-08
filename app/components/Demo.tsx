@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 
 type Phase = "idle" | "recording" | "transcript" | "thinking" | "sheet" | "done";
 
@@ -40,6 +40,7 @@ export function FieldCopilotDemo() {
   const [wordsShown, setWordsShown] = useState(0);
   const [timer, setTimer] = useState(0);
   const [diagramStep, setDiagramStep] = useState(0); // 0..3 (how many cyan dots in)
+  const reduceMotion = useReducedMotion();
   const timeoutsRef = useRef<ReturnType<typeof setTimeout>[]>([]);
   const intervalsRef = useRef<ReturnType<typeof setInterval>[]>([]);
 
@@ -122,9 +123,15 @@ export function FieldCopilotDemo() {
                 animate={
                   phase === "idle"
                     ? { opacity: 0.3 }
+                    : reduceMotion
+                    ? { opacity: 0.9 }
                     : { opacity: [1, 0.4, 1] }
                 }
-                transition={{ duration: 1.4, repeat: Infinity }}
+                transition={
+                  reduceMotion
+                    ? { duration: 0 }
+                    : { duration: 1.4, repeat: Infinity }
+                }
               />
               <span className="text-[11px] font-semibold text-danger tracking-[0.15em]">
                 {phase === "idle" ? "READY" : "RECORDING"}
@@ -158,18 +165,22 @@ export function FieldCopilotDemo() {
                       opacity: baseOpacity,
                     }}
                     animate={
-                      showWaveform
-                        ? {
-                            scaleY: [0.4, 1, 0.6, 1.1, 0.5, 1],
-                          }
+                      reduceMotion
+                        ? { scaleY: showWaveform ? 0.7 : 0.3 }
+                        : showWaveform
+                        ? { scaleY: [0.4, 1, 0.6, 1.1, 0.5, 1] }
                         : { scaleY: 0.3 }
                     }
-                    transition={{
-                      duration: 1.2 + (i % 5) * 0.15,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: i * 0.03,
-                    }}
+                    transition={
+                      reduceMotion
+                        ? { duration: 0.2 }
+                        : {
+                            duration: 1.2 + (i % 5) * 0.15,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: i * 0.03,
+                          }
+                    }
                   />
                 );
               })}
@@ -198,9 +209,9 @@ export function FieldCopilotDemo() {
                     {TRANSCRIPT.slice(0, wordsShown).map((tok, i) => (
                       <motion.span
                         key={i}
-                        initial={{ opacity: 0, y: 4 }}
+                        initial={reduceMotion ? false : { opacity: 0, y: 4 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.18 }}
+                        transition={{ duration: reduceMotion ? 0 : 0.18 }}
                         className={
                           tok.entity ? "text-accent-ai font-semibold" : ""
                         }
@@ -229,9 +240,15 @@ export function FieldCopilotDemo() {
                     {["plumbing", "high priority", "recurring"].map((t, i) => (
                       <motion.span
                         key={t}
-                        initial={{ opacity: 0, scale: 0.85 }}
+                        initial={
+                          reduceMotion ? false : { opacity: 0, scale: 0.85 }
+                        }
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: i * 0.1 }}
+                        transition={{
+                          delay: reduceMotion ? 0 : i * 0.1,
+                          duration: reduceMotion ? 0 : 0.22,
+                          ease: [0.2, 0, 0, 1],
+                        }}
                         className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-accent-ai/60 bg-bg-deep text-[11px] font-semibold text-accent-ai"
                       >
                         <span className="w-1 h-1 rounded-full bg-accent-ai" />
@@ -255,29 +272,26 @@ export function FieldCopilotDemo() {
             <div className="flex flex-col items-center gap-1.5">
               <motion.button
                 onClick={phase === "idle" ? play : undefined}
-                className="w-[72px] h-[72px] rounded-full bg-accent-ai flex items-center justify-center"
+                className="relative w-[72px] h-[72px] rounded-full bg-accent-ai flex items-center justify-center"
                 animate={
-                  phase === "idle"
-                    ? { boxShadow: "0 0 0 0 rgba(0, 212, 255, 0.6)" }
-                    : phase === "recording" || phase === "transcript"
-                    ? {
-                        boxShadow: [
-                          "0 0 0 0 rgba(0, 212, 255, 0.6)",
-                          "0 0 0 16px rgba(0, 212, 255, 0)",
-                        ],
-                      }
-                    : { boxShadow: "0 0 32px rgba(0, 212, 255, 0.5)" }
+                  phase === "done" && !reduceMotion
+                    ? { boxShadow: "0 0 32px rgba(0, 212, 255, 0.5)" }
+                    : { boxShadow: "0 0 0 0 rgba(0, 212, 255, 0)" }
                 }
-                transition={{
-                  duration: 1.4,
-                  repeat:
-                    phase === "recording" || phase === "transcript"
-                      ? Infinity
-                      : 0,
-                }}
-                whileHover={phase === "idle" ? { scale: 1.05 } : undefined}
+                transition={{ duration: 0.3 }}
+                whileHover={phase === "idle" && !reduceMotion ? { scale: 1.05 } : undefined}
                 whileTap={phase === "idle" ? { scale: 0.95 } : undefined}
               >
+                {/* Pulse ring — transform-based, not boxShadow (GPU-friendly) */}
+                {(phase === "recording" || phase === "transcript") && !reduceMotion && (
+                  <motion.span
+                    aria-hidden
+                    className="absolute inset-0 rounded-full border-2 border-accent-ai pointer-events-none"
+                    initial={{ scale: 1, opacity: 0.6 }}
+                    animate={{ scale: 1.5, opacity: 0 }}
+                    transition={{ duration: 1.4, repeat: Infinity, ease: "easeOut" }}
+                  />
+                )}
                 <span className="w-4 h-4 rounded-sm bg-bg-deep" />
               </motion.button>
               <span className="text-[10px] text-accent-ai">
@@ -304,8 +318,12 @@ export function FieldCopilotDemo() {
               className="absolute inset-0 bg-bg-deep/40 backdrop-blur-[1px] flex items-end justify-center pb-44 pointer-events-none"
             >
               <motion.div
-                animate={{ y: [0, -4, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
+                animate={
+                  reduceMotion
+                    ? { opacity: [1, 0.5, 1] }
+                    : { y: [0, -4, 0] }
+                }
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 className="text-center text-text-inverse text-[13px] font-medium"
               >
                 ↓ Tap the mic ↓
@@ -319,10 +337,14 @@ export function FieldCopilotDemo() {
           {showSheet && (
             <motion.div
               key="sheet"
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "100%" }}
-              transition={{ type: "spring", damping: 28, stiffness: 280 }}
+              initial={reduceMotion ? { opacity: 0 } : { y: "100%" }}
+              animate={reduceMotion ? { opacity: 1 } : { y: 0 }}
+              exit={reduceMotion ? { opacity: 0 } : { y: "100%" }}
+              transition={
+                reduceMotion
+                  ? { duration: 0.18 }
+                  : { type: "spring", damping: 28, stiffness: 280 }
+              }
               className="absolute inset-x-0 bottom-0 bg-bg-card rounded-t-[28px] shadow-[0_-8px_32px_rgba(0,0,0,0.25)] p-5 pb-7"
               style={{ height: "62%" }}
             >
@@ -383,13 +405,25 @@ export function FieldCopilotDemo() {
                       {!floor.isWhite && (
                         <motion.span
                           className="absolute right-1 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-accent-ai"
-                          initial={{ scale: 0, opacity: 0 }}
-                          animate={
-                            diagramStep > (floor.idx ?? 0)
-                              ? { scale: 1, opacity: 1 }
+                          initial={
+                            reduceMotion
+                              ? { opacity: 0 }
                               : { scale: 0, opacity: 0 }
                           }
-                          transition={{ type: "spring", damping: 18 }}
+                          animate={
+                            diagramStep > (floor.idx ?? 0)
+                              ? reduceMotion
+                                ? { opacity: 1 }
+                                : { scale: 1, opacity: 1 }
+                              : reduceMotion
+                                ? { opacity: 0 }
+                                : { scale: 0, opacity: 0 }
+                          }
+                          transition={
+                            reduceMotion
+                              ? { duration: 0.15 }
+                              : { type: "spring", damping: 18 }
+                          }
                         />
                       )}
                     </div>
