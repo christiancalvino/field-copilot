@@ -73,7 +73,7 @@ export default function Home() {
                 Three sentences. <br />
                 The AI does the rest.
               </h2>
-              <p className="text-[17px] leading-[1.6] text-text-on-navy/85 max-w-lg">
+              <p className="text-[17px] leading-[1.6] text-text-on-navy/85 max-w-lg mb-10">
                 Watch the actual flow. Marcus walks into Unit 3B, taps the mic,
                 describes the leak. The AI parses entities in real time, tags
                 the work, and surfaces the insight a human would never connect
@@ -83,16 +83,16 @@ export default function Home() {
                   month.
                 </span>
               </p>
+
+              {/* Timeline — stacked vertically below the paragraph */}
+              <div className="space-y-4 max-w-md">
+                <TimelineStep n="1" label="Speak naturally" />
+                <TimelineStep n="2" label="AI parses entities live" />
+                <TimelineStep n="3" label="Pattern detected" />
+              </div>
             </div>
 
             <FieldCopilotDemo />
-          </div>
-
-          {/* Timeline below the demo — eye watches first, reads after */}
-          <div className="mt-16 lg:mt-20 grid grid-cols-3 gap-6 sm:gap-10">
-            <TimelineStep n="1" label="Speak naturally" />
-            <TimelineStep n="2" label="AI parses entities live" />
-            <TimelineStep n="3" label="Pattern detected" />
           </div>
         </div>
       </section>
