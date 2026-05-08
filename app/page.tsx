@@ -309,30 +309,41 @@ export default function Home() {
           <div className="text-[12px] font-semibold tracking-[0.2em] text-accent-ai mb-6 uppercase">
             ✦ Here&apos;s what I&apos;d do
           </div>
-          <h2 className="text-[clamp(36px,5.5vw,64px)] font-bold leading-[1.05] tracking-[-0.035em] mb-7">
-            I&apos;d love to build this for real.
+          <h2 className="text-[clamp(32px,4.8vw,56px)] font-bold leading-[1.08] tracking-[-0.03em] mb-7 max-w-2xl mx-auto">
+            A working concept, submitted for review.
           </h2>
-          <p className="text-[18px] leading-[1.6] text-text-on-navy/80 max-w-xl mx-auto mb-10">
-            If Field Copilot resonates with where HappyCo&apos;s heading,
-            let&apos;s talk. I&apos;m the technician you&apos;re looking for —
-            field-tested, AI-native, gets shit done.
+          <p className="text-[17px] leading-[1.65] text-text-on-navy/80 max-w-2xl mx-auto mb-12">
+            The artifact above documents persona choice, system extension
+            rationale (JoyAI → Field Copilot), and one functional moment
+            built in real code. Open to discussion of implementation
+            trade-offs, scope, or design rationale.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:design@happy.co?subject=Here%27s%20what%20I%27d%20do"
+              href="mailto:chris@chriscalvino.com?subject=Re%3A%20Field%20Copilot"
               className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-accent-ai text-bg-deep font-semibold hover:bg-text-inverse transition"
             >
-              design@happy.co
+              chris@chriscalvino.com
               <span>→</span>
             </a>
             <a
-              href="https://www.figma.com/design/MG6QCVUnwNy4NLIahdk2p0"
+              href="https://chriscalvino.com"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 px-7 py-4 rounded-full border border-text-on-navy/30 text-text-inverse font-medium hover:border-accent-ai hover:text-accent-ai transition"
             >
-              View Figma file
+              chriscalvino.com
               <span>↗</span>
+            </a>
+          </div>
+          <div className="mt-8">
+            <a
+              href="https://www.figma.com/design/MG6QCVUnwNy4NLIahdk2p0"
+              target="_blank"
+              rel="noreferrer"
+              className="text-[13px] text-text-on-navy/55 hover:text-accent-ai transition underline-offset-4 hover:underline"
+            >
+              View Figma file ↗
             </a>
           </div>
         </div>
