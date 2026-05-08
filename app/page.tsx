@@ -38,8 +38,6 @@ export default function Home() {
         <div className="flex items-center gap-2 text-[12px] font-semibold tracking-[0.2em] text-text-tertiary mb-6 uppercase">
           <span className="text-accent-ai-soft">✦</span>
           A concept for HappyCo
-          <span className="opacity-40">·</span>
-          <span>By Christian Calviño</span>
         </div>
 
         <h1 className="text-[clamp(40px,7vw,84px)] font-bold leading-[1.02] tracking-[-0.04em] text-text-primary max-w-4xl">
@@ -318,23 +316,24 @@ export default function Home() {
             built in real code. Open to discussion of implementation
             trade-offs, scope, or design rationale.
           </p>
-          <a
-            href="https://www.figma.com/design/MG6QCVUnwNy4NLIahdk2p0"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-accent-ai text-bg-deep font-semibold hover:bg-text-inverse transition"
-          >
-            View Figma file
-            <span>↗</span>
-          </a>
-          <div className="mt-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="https://www.figma.com/design/MG6QCVUnwNy4NLIahdk2p0"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-accent-ai text-bg-deep font-semibold hover:bg-text-inverse transition"
+            >
+              View Figma file
+              <span>↗</span>
+            </a>
             <a
               href="https://chriscalvino.com"
               target="_blank"
               rel="noreferrer"
-              className="text-[14px] text-text-on-navy/60 hover:text-accent-ai transition underline-offset-4 hover:underline"
+              className="inline-flex items-center gap-2 px-7 py-4 rounded-full border border-text-on-navy/30 text-text-inverse font-medium hover:border-accent-ai hover:text-accent-ai transition"
             >
-              chriscalvino.com ↗
+              chriscalvino.com
+              <span>↗</span>
             </a>
           </div>
         </div>
