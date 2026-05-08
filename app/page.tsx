@@ -5,12 +5,12 @@ const SCREENS = [
   {
     src: "/screens/01-today.png",
     label: "01 — Today",
-    desc: "AI-curated morning. JoyAI already triaged overnight calls; today's route is optimized, parts pre-staged, top of stack flagged.",
+    desc: "JoyAI has already triaged overnight intake; today's route is optimized, parts are pre-staged, and the top risk is flagged.",
   },
   {
     src: "/screens/02-capture.png",
     label: "02 — Capture",
-    desc: "Voice in the unit. Transcription parses entities live. Tags emerge auto-detected. Three sentences replace a five-minute form.",
+    desc: "Voice in the unit. Transcription parses entities live. Three sentences become structured fields, suggested tags, and portfolio context.",
   },
   {
     src: "/screens/03-pattern.png",
@@ -264,7 +264,7 @@ export default function Home() {
             n="04"
             title="5 high-fi frames, ~3h"
             tools="Figma + Claude"
-            body="Built each screen with auto-layout, components, and the design tokens. Iterated copy with Claude to match HappyCo's voice."
+            body="Built each screen with auto-layout, components, and the design tokens. Iterated copy with Claude to stay close to HappyCo's tone without copying product."
           />
           <Step
             n="05"
