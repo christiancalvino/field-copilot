@@ -134,7 +134,7 @@ export default function Home() {
                 alt={s.label}
                 width={390}
                 height={844}
-                className="relative rounded-[44px] shadow-[0_30px_60px_-15px_rgba(11,37,64,0.25)] ring-1 ring-bg-deep/5"
+                className="relative rounded-[44px] shadow-[0_30px_60px_-15px_rgba(11,37,64,0.25)] ring-1 ring-bg-deep/5 max-w-full h-auto"
                 priority
               />
             </div>
@@ -312,40 +312,20 @@ export default function Home() {
           <h2 className="text-[clamp(32px,4.8vw,56px)] font-bold leading-[1.08] tracking-[-0.03em] mb-7 max-w-2xl mx-auto">
             A working concept, submitted for review.
           </h2>
-          <p className="text-[17px] leading-[1.65] text-text-on-navy/80 max-w-2xl mx-auto mb-12">
+          <p className="text-[17px] leading-[1.65] text-text-on-navy/80 max-w-2xl mx-auto mb-10">
             The artifact above documents persona choice, system extension
             rationale (JoyAI → Field Copilot), and one functional moment
             built in real code. Open to discussion of implementation
             trade-offs, scope, or design rationale.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="https://www.figma.com/design/MG6QCVUnwNy4NLIahdk2p0"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-accent-ai text-bg-deep font-semibold hover:bg-text-inverse transition"
-            >
-              View Figma file
-              <span>↗</span>
-            </a>
-            <a
-              href="mailto:chris@chriscalvino.com?subject=Re%3A%20Field%20Copilot"
-              className="inline-flex items-center gap-2 px-7 py-4 rounded-full border border-text-on-navy/30 text-text-inverse font-medium hover:border-accent-ai hover:text-accent-ai transition"
-            >
-              chris@chriscalvino.com
-              <span>→</span>
-            </a>
-          </div>
-          <div className="mt-8">
-            <a
-              href="https://chriscalvino.com"
-              target="_blank"
-              rel="noreferrer"
-              className="text-[13px] text-text-on-navy/55 hover:text-accent-ai transition underline-offset-4 hover:underline"
-            >
-              chriscalvino.com ↗
-            </a>
-          </div>
+          <a
+            href="https://chriscalvino.com"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-block text-[18px] sm:text-[20px] font-medium text-accent-ai hover:text-text-inverse transition underline-offset-[6px] hover:underline"
+          >
+            chriscalvino.com ↗
+          </a>
         </div>
       </section>
 
@@ -356,8 +336,17 @@ export default function Home() {
             Christian Calviño
           </span>
         </div>
-        <div>
-          Not affiliated with HappyCo · {new Date().getFullYear()}
+        <div className="flex items-center gap-5">
+          <a
+            href="https://www.figma.com/design/MG6QCVUnwNy4NLIahdk2p0"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-text-primary transition"
+          >
+            View Figma file ↗
+          </a>
+          <span className="text-text-tertiary/50">·</span>
+          <span>Not affiliated with HappyCo · {new Date().getFullYear()}</span>
         </div>
       </footer>
     </main>
