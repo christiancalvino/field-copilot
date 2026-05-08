@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Field Copilot
 
-## Getting Started
+An AI-led mobile concept for HappyCo maintenance technicians. A concept artifact submitted to **design@happy.co** for the Staff Product Designer role.
 
-First, run the development server:
+**Figma:** https://www.figma.com/design/MG6QCVUnwNy4NLIahdk2p0
+**Author:** Christian Calviño
+
+## What's in here
+
+A Next.js microsite that wraps:
+
+1. **The narrative** — why HappyCo's next AI primitive should be the technician, not another dashboard
+2. **A functional demo** — the Frame 2 → Frame 3 transition built as real code (state machine, real animations), not a Figma prototype
+3. **The full flow** — 5 screens exported from Figma covering a maintenance technician's day end-to-end
+4. **Transparent process notes** — how AI was used, with honest time accounting
+
+Built in ~12h with Claude as the execution partner. Every concept, copy choice, and structural decision was mine. AI handled the typing.
+
+## Stack
+
+- Next.js 16 (App Router) + React 19
+- Tailwind CSS v4
+- Motion (Framer Motion v12) for the demo animations
+- TypeScript
+
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Opens at http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Brand tokens
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Mirrored from the Figma design system (HappyCo-aligned navy + cyan-for-AI). See [`app/globals.css`](app/globals.css) for the full palette + type scale.
