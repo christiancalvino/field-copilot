@@ -138,7 +138,7 @@ export default function Home() {
                 alt={s.label}
                 width={390}
                 height={844}
-                className="relative rounded-[44px] shadow-[0_24px_48px_-12px_rgba(40,36,90,0.22),0_8px_16px_-8px_rgba(40,36,90,0.12)] max-w-[390px] w-full h-auto"
+                className="relative shadow-[0_24px_48px_-12px_rgba(40,36,90,0.22),0_8px_16px_-8px_rgba(40,36,90,0.12)] max-w-[390px] w-full h-auto"
                 priority
               />
             </div>
@@ -176,7 +176,7 @@ export default function Home() {
                     alt={s.label}
                     width={390}
                     height={844}
-                    className="relative rounded-[44px] shadow-[0_18px_36px_-12px_rgba(40,36,90,0.18),0_6px_12px_-6px_rgba(40,36,90,0.10)] max-w-[320px] w-full h-auto"
+                    className="relative shadow-[0_18px_36px_-12px_rgba(40,36,90,0.18),0_6px_12px_-6px_rgba(40,36,90,0.10)] max-w-[380px] w-full h-auto"
                   />
                 </div>
                 <div className="text-[11px] font-semibold tracking-[0.18em] text-text-tertiary mb-3 uppercase">
