@@ -141,13 +141,20 @@ export default function Home() {
             key={s.src}
             className="grid lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-16 items-center mb-20 lg:mb-28"
           >
-            <div className="rounded-3xl bg-bg-deep p-8 sm:p-10 flex items-center justify-center">
+            <div className="relative flex items-center justify-center py-10 lg:py-16">
+              {/* Soft cyan glow — hints at the AI moment without a heavy frame */}
+              <div
+                aria-hidden
+                className="absolute inset-0 flex items-center justify-center pointer-events-none"
+              >
+                <div className="w-[80%] aspect-square bg-accent-ai/20 rounded-full blur-[80px]" />
+              </div>
               <Image
                 src={s.src}
                 alt={s.label}
                 width={390}
                 height={844}
-                className="rounded-[44px] shadow-2xl"
+                className="relative rounded-[44px] shadow-[0_30px_60px_-15px_rgba(11,37,64,0.25)] ring-1 ring-bg-deep/5"
                 priority
               />
             </div>
