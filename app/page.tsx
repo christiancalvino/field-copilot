@@ -165,8 +165,8 @@ export default function Home() {
           </div>
         ))}
 
-        {/* The other 4 — grouped on a warm dark charcoal container */}
-        <div className="rounded-3xl bg-[#3D3B40] px-6 sm:px-10 lg:px-14 py-12 sm:py-16">
+        {/* The other 4 — grouped on warm cream container (HappyCo site beige) */}
+        <div className="rounded-3xl bg-[#F5F1E6] px-6 sm:px-10 lg:px-14 py-12 sm:py-16">
           <div className="grid sm:grid-cols-2 gap-y-20 sm:gap-y-24 gap-x-10 lg:gap-x-14">
             {SCREENS.filter((s) => !s.hero).map((s) => (
               <div key={s.src} className="flex flex-col items-center text-center">
@@ -176,13 +176,13 @@ export default function Home() {
                     alt={s.label}
                     width={1170}
                     height={2532}
-                    className="relative rounded-[44px] shadow-[0_24px_48px_-16px_rgba(0,0,0,0.5),0_8px_16px_-8px_rgba(0,0,0,0.3)] max-w-[380px] w-full h-auto"
+                    className="relative rounded-[44px] shadow-[0_18px_36px_-12px_rgba(40,36,90,0.18),0_6px_12px_-6px_rgba(40,36,90,0.10)] max-w-[380px] w-full h-auto"
                   />
                 </div>
-                <div className="text-[11px] font-semibold tracking-[0.18em] text-white/55 mb-3 uppercase">
+                <div className="text-[11px] font-semibold tracking-[0.18em] text-text-tertiary mb-3 uppercase">
                   {s.label}
                 </div>
-                <p className="text-[15px] leading-[1.55] text-white/80 max-w-sm">
+                <p className="text-[15px] leading-[1.55] text-text-secondary max-w-sm">
                   {s.desc}
                 </p>
               </div>
