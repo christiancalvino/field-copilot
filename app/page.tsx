@@ -85,36 +85,16 @@ export default function Home() {
                   month.
                 </span>
               </p>
-
-              <div className="mt-9 grid grid-cols-3 gap-5 max-w-md">
-                <div>
-                  <div className="text-[12px] font-semibold tracking-[0.18em] text-accent-ai">
-                    1.
-                  </div>
-                  <div className="text-[14px] mt-1 text-text-on-navy/85 leading-snug">
-                    Speak<br />naturally
-                  </div>
-                </div>
-                <div>
-                  <div className="text-[12px] font-semibold tracking-[0.18em] text-accent-ai">
-                    2.
-                  </div>
-                  <div className="text-[14px] mt-1 text-text-on-navy/85 leading-snug">
-                    AI parses<br />entities live
-                  </div>
-                </div>
-                <div>
-                  <div className="text-[12px] font-semibold tracking-[0.18em] text-accent-ai">
-                    3.
-                  </div>
-                  <div className="text-[14px] mt-1 text-text-on-navy/85 leading-snug">
-                    Pattern<br />detected
-                  </div>
-                </div>
-              </div>
             </div>
 
             <FieldCopilotDemo />
+          </div>
+
+          {/* Timeline below the demo — eye watches first, reads after */}
+          <div className="mt-16 lg:mt-20 grid grid-cols-3 gap-6 sm:gap-10 max-w-3xl mx-auto">
+            <TimelineStep n="1" label="Speak naturally" />
+            <TimelineStep n="2" label="AI parses entities live" />
+            <TimelineStep n="3" label="Pattern detected" />
           </div>
         </div>
       </section>
@@ -181,17 +161,24 @@ export default function Home() {
           </div>
         ))}
 
-        {/* The other 4 */}
+        {/* The other 4 — editorial floating, consistent with hero treatment */}
         <div className="grid sm:grid-cols-2 gap-y-16 gap-x-10">
           {SCREENS.filter((s) => !s.hero).map((s) => (
             <div key={s.src}>
-              <div className="rounded-3xl bg-bg-muted p-6 sm:p-8 flex items-center justify-center mb-6">
+              <div className="relative flex items-center justify-center py-8 mb-6">
+                {/* Subtle cyan glow — softer than the hero */}
+                <div
+                  aria-hidden
+                  className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                >
+                  <div className="w-[70%] aspect-square bg-accent-ai/10 rounded-full blur-[60px]" />
+                </div>
                 <Image
                   src={s.src}
                   alt={s.label}
                   width={390}
                   height={844}
-                  className="rounded-[44px] shadow-xl max-w-[320px] w-full h-auto"
+                  className="relative rounded-[44px] shadow-[0_20px_40px_-15px_rgba(11,37,64,0.2)] ring-1 ring-bg-deep/5 max-w-[320px] w-full h-auto"
                 />
               </div>
               <div className="text-[11px] font-semibold tracking-[0.18em] text-text-tertiary mb-2 uppercase">
@@ -373,6 +360,20 @@ function Stat({ value, label }: { value: string; label: string }) {
         {value}
       </div>
       <div className="text-[12px] text-text-tertiary leading-snug mt-0.5">
+        {label}
+      </div>
+    </div>
+  );
+}
+
+function TimelineStep({ n, label }: { n: string; label: string }) {
+  return (
+    <div className="relative pt-4 border-t border-text-on-navy/15">
+      <div className="absolute -top-px left-0 w-8 h-px bg-accent-ai" />
+      <div className="text-[12px] font-semibold tracking-[0.18em] text-accent-ai mb-1.5">
+        {n}.
+      </div>
+      <div className="text-[15px] text-text-on-navy/90 leading-snug">
         {label}
       </div>
     </div>
