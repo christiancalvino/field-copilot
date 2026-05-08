@@ -132,7 +132,7 @@ export default function Home() {
                 alt={s.label}
                 width={390}
                 height={844}
-                className="relative rounded-[44px] shadow-[0_30px_60px_-15px_rgba(11,37,64,0.25)] ring-1 ring-bg-deep/5 max-w-full h-auto"
+                className="relative rounded-[44px] shadow-[0_24px_48px_-12px_rgba(40,36,90,0.22),0_8px_16px_-8px_rgba(40,36,90,0.12)] max-w-[390px] w-full h-auto"
                 priority
               />
             </div>
@@ -159,34 +159,29 @@ export default function Home() {
           </div>
         ))}
 
-        {/* The other 4 — editorial floating, consistent with hero treatment */}
-        <div className="grid sm:grid-cols-2 gap-y-16 gap-x-10">
-          {SCREENS.filter((s) => !s.hero).map((s) => (
-            <div key={s.src}>
-              <div className="relative flex items-center justify-center py-8 mb-6">
-                {/* Subtle cyan glow — softer than the hero */}
-                <div
-                  aria-hidden
-                  className="absolute inset-0 flex items-center justify-center pointer-events-none"
-                >
-                  <div className="w-[70%] aspect-square bg-accent-ai/10 rounded-full blur-[60px]" />
+        {/* The other 4 — grouped in a soft lavender container */}
+        <div className="rounded-3xl bg-bg-lavender/70 px-6 sm:px-10 lg:px-14 py-12 sm:py-16">
+          <div className="grid sm:grid-cols-2 gap-y-16 sm:gap-y-20 gap-x-10 lg:gap-x-14">
+            {SCREENS.filter((s) => !s.hero).map((s) => (
+              <div key={s.src}>
+                <div className="relative flex items-center justify-center pb-6">
+                  <Image
+                    src={s.src}
+                    alt={s.label}
+                    width={390}
+                    height={844}
+                    className="relative rounded-[44px] shadow-[0_18px_36px_-12px_rgba(40,36,90,0.18),0_6px_12px_-6px_rgba(40,36,90,0.10)] max-w-[320px] w-full h-auto"
+                  />
                 </div>
-                <Image
-                  src={s.src}
-                  alt={s.label}
-                  width={390}
-                  height={844}
-                  className="relative rounded-[44px] shadow-[0_20px_40px_-15px_rgba(11,37,64,0.2)] ring-1 ring-bg-deep/5 max-w-[320px] w-full h-auto"
-                />
+                <div className="text-[11px] font-semibold tracking-[0.18em] text-text-tertiary mb-2 uppercase">
+                  {s.label}
+                </div>
+                <p className="text-[15px] leading-[1.55] text-text-secondary">
+                  {s.desc}
+                </p>
               </div>
-              <div className="text-[11px] font-semibold tracking-[0.18em] text-text-tertiary mb-2 uppercase">
-                {s.label}
-              </div>
-              <p className="text-[15px] leading-[1.55] text-text-secondary">
-                {s.desc}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
