@@ -1,29 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  /* HappyCo-aligned palette */
-  --bg-primary: #1a1a52;        /* deep purple-navy (was #0b2540) */
-  --bg-deep: #0e0e33;           /* deepest purple (was #061830) */
-  --bg-surface: #faf7f0;        /* warm cream (was #fcfcfd) */
+  /* HappyCo-aligned palette — white bg + pale lavender accents + exact navy from their site */
+  --bg-primary: #28245a;        /* exact HappyCo navy from their type inspector rgb(40,36,90) */
+  --bg-deep: #0f0e2a;           /* deeper purple-navy */
+  --bg-surface: #ffffff;        /* white bg (was warm cream — wrong) */
   --bg-card: #ffffff;
-  --bg-muted: #f0ede3;          /* warm muted (was #f1f5f9) */
+  --bg-muted: #efedff;           /* pale lavender for chips/muted sections */
+  --bg-lavender: #f5f3ff;        /* even softer lavender for subtle bg sections */
 
-  --accent-ai: #10b981;         /* mint green = HappyCo's AI accent (was cyan #00d4ff) */
+  --accent-ai: #10b981;         /* mint green = HappyCo's AI accent */
   --accent-ai-soft: #047857;    /* deeper mint for labels */
 
-  --success: #10b981;           /* same green family — intentional */
+  --success: #10b981;
   --warning: #f59e0b;
   --alert: #ffb547;
   --danger: #ef4444;
 
-  --text-primary: #1a1a52;      /* purple-tinged dark (matches navy) */
-  --text-secondary: #5b5b80;    /* purple-tinged secondary */
-  --text-tertiary: #9594b5;     /* purple-tinged tertiary */
+  --text-primary: #28245a;      /* matches navy */
+  --text-secondary: #6b6790;    /* muted purple */
+  --text-tertiary: #a09cc0;     /* lavender-tinged tertiary */
   --text-inverse: #ffffff;
-  --text-on-navy: #d8d8e8;      /* slightly purple-tinged */
+  --text-on-navy: #d8d6ee;      /* lavender-tinged on navy */
 
-  --border-subtle: #e8e4d6;     /* warm cream-toned border */
-  --border-strong: #c8c4b6;
+  --border-subtle: #e8e5fa;     /* pale lavender border */
+  --border-strong: #c8c4e0;
 }
 
 @theme inline {
@@ -46,8 +47,10 @@
   --color-border-subtle: var(--border-subtle);
   --color-border-strong: var(--border-strong);
 
+  --color-bg-lavender: var(--bg-lavender);
+
   --font-sans: var(--font-inter);
-  --font-display: var(--font-bricolage);
+  --font-display: var(--font-barlow-condensed);
   --font-mono: var(--font-jetbrains-mono);
 }
 
@@ -63,12 +66,15 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Display font — for big headings, matches HappyCo's chunky display style */
+/* Display font — Barlow Condensed at 800 (closest free match to HappyCo's
+   Proxima Nova Extra Condensed Bold). Tight line-height creates the
+   signature chunky display feel. */
 h1, h2, h3,
 .font-display {
-  font-family: var(--font-bricolage), var(--font-inter), system-ui, sans-serif;
-  font-optical-sizing: auto;
-  font-stretch: 95%;
+  font-family: var(--font-barlow-condensed), "Inter", system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 0.92;
 }
 
 @keyframes wave-pulse {
@@ -79,6 +85,11 @@ h1, h2, h3,
 @keyframes ai-glow {
   0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.55); }
   50%      { box-shadow: 0 0 0 12px rgba(16, 185, 129, 0); }
+}
+
+/* Tighten Barlow Condensed at large sizes — matches HappyCo's display feel */
+.tracking-display {
+  letter-spacing: -0.02em;
 }
 
 @keyframes cursor-blink {
