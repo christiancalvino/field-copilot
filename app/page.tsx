@@ -45,19 +45,25 @@ export default function Home() {
         </h1>
 
         <p className="mt-7 max-w-2xl text-[18px] sm:text-[20px] leading-[1.55] text-text-secondary">
-          HappyCo already has the smartest AI in multifamily —{" "}
+          HappyCo already applies AI across intake, routing, summaries, and
+          field notes —{" "}
           <span className="font-semibold text-text-primary">JoyAI</span>{" "}
-          handles calls. The next move is shipping that intelligence into the
-          field, where the technician is in the unit, hands dirty, three
-          sentences away from a complete work order — and a portfolio-wide
-          pattern they couldn&apos;t see alone.
+          being the most visible piece. Field Copilot explores what happens
+          when that intelligence becomes native to the technician&apos;s
+          in-unit workflow — three sentences away from a complete work
+          order, and a portfolio-wide pattern they couldn&apos;t see alone.
+        </p>
+
+        <p className="mt-6 max-w-2xl text-[16px] leading-[1.55] text-text-primary border-l-2 border-accent-ai pl-4">
+          The goal: reduce form burden for technicians while turning every
+          repair into structured portfolio intelligence.
         </p>
 
         <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-3 text-[13px] font-mono text-text-tertiary">
           <span><span className="text-text-primary">5</span> screens</span>
-          <span><span className="text-text-primary">1</span> functional moment</span>
+          <span><span className="text-text-primary">1</span> coded interaction</span>
           <span><span className="text-text-primary">~12h</span> with AI</span>
-          <span><span className="text-text-primary">0</span> mockup tools</span>
+          <span><span className="text-text-primary">Figma</span> + Next.js</span>
         </div>
       </section>
 
@@ -200,17 +206,18 @@ export default function Home() {
             <div className="space-y-4">
               <p>
                 <span className="font-semibold text-text-primary">
-                  JoyAI handles the call.
+                  HappyCo&apos;s AI investment is real and broad
                 </span>{" "}
-                That covers one persona — the resident, after hours. But
-                multifamily maintenance has four personas, and the one with
-                the most volume of friction is the maintenance technician in
-                the field.
+                — JoyAI for calls, smart routing, voice notes, portfolio
+                audits. Each piece pulls intelligence into a different
+                operational moment.
               </p>
               <p>
-                Most of HappyCo&apos;s product surface today serves managers
-                and owners — dashboards, audits, KPIs. The technician
-                experience is mobile and form-heavy. That&apos;s the gap.
+                HappyCo&apos;s public narrative is strongest around
+                operational visibility, automation, and portfolio
+                intelligence. I wanted to explore the field moment where
+                that intelligence is captured — voice-first, in-unit,
+                hands dirty.
               </p>
             </div>
             <div className="space-y-4">
@@ -218,9 +225,9 @@ export default function Home() {
                 <span className="font-semibold text-text-primary">
                   Field Copilot
                 </span>{" "}
-                extends the JoyAI primitive into the technician&apos;s
-                pocket. Same intelligence, different context. It captures
-                voice, parses intent, and most importantly:{" "}
+                extends that intelligence into the technician&apos;s pocket.
+                Same logic, different context. It captures voice, parses
+                intent, and most importantly:{" "}
                 <span className="text-accent-ai-soft font-semibold">
                   it remembers across the portfolio.
                 </span>
