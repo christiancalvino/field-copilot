@@ -320,30 +320,30 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:chris@chriscalvino.com?subject=Re%3A%20Field%20Copilot"
+              href="https://www.figma.com/design/MG6QCVUnwNy4NLIahdk2p0"
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-accent-ai text-bg-deep font-semibold hover:bg-text-inverse transition"
+            >
+              View Figma file
+              <span>↗</span>
+            </a>
+            <a
+              href="mailto:chris@chriscalvino.com?subject=Re%3A%20Field%20Copilot"
+              className="inline-flex items-center gap-2 px-7 py-4 rounded-full border border-text-on-navy/30 text-text-inverse font-medium hover:border-accent-ai hover:text-accent-ai transition"
             >
               chris@chriscalvino.com
               <span>→</span>
             </a>
+          </div>
+          <div className="mt-8">
             <a
               href="https://chriscalvino.com"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-4 rounded-full border border-text-on-navy/30 text-text-inverse font-medium hover:border-accent-ai hover:text-accent-ai transition"
-            >
-              chriscalvino.com
-              <span>↗</span>
-            </a>
-          </div>
-          <div className="mt-8">
-            <a
-              href="https://www.figma.com/design/MG6QCVUnwNy4NLIahdk2p0"
-              target="_blank"
-              rel="noreferrer"
               className="text-[13px] text-text-on-navy/55 hover:text-accent-ai transition underline-offset-4 hover:underline"
             >
-              View Figma file ↗
+              chriscalvino.com ↗
             </a>
           </div>
         </div>
